@@ -1,18 +1,18 @@
 {% set name = "wagtailcharts" %}
-{% set version = "0.6.3" %}
+{% set version = "0.7" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/wagtailcharts-{{ version }}.tar.gz
-  sha256: 9ceb7deb7af7fba851bcb1092ca4915343715615060f713c4a937d352a269a80
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/wagtailcharts-{{ version }}.tar.gz
+  sha256: 15fa93497785e968828bebe4d09d514315335d94ad5ba8e13b29ce351f141367
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,7 +21,7 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - wagtail >=3.0
+    - wagtail >=7.0
 
 test:
   imports:
